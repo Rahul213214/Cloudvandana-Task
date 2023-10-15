@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <style>
+        /* CSS for the colorful calculator with a blue background */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #337ab7; /* Set the body background color to blue */
+            color: #fff;
+        }
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        input[type="text"], input[type="button"] {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            background-color: #f1f1f1;
+        }
+        input[type="button"] {
+            background-color: #337ab7;
+            color: #fff;
+        }
+        input[type="button"]:hover {
+            background-color: #235a99;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" disabled>
+        <table>
+            <tr>
+                <td><input type="button" value="7" onclick="addToResult('7')"></td>
+                <td><input type="button" value="8" onclick="addToResult('8')"></td>
+                <td><input type="button" value="9" onclick="addToResult('9')"></td>
+                <td><input type="button" value="/" onclick="addToResult('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="addToResult('4')"></td>
+                <td><input type="button" value="5" onclick="addToResult('5')"></td>
+                <td><input type="button" value="6" onclick="addToResult('6')"></td>
+                <td><input type="button" value="*" onclick="addToResult('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="addToResult('1')"></td>
+                <td><input type="button" value="2" onclick="addToResult('2')"></td>
+                <td><input type="button" value="3" onclick="addToResult('3')"></td>
+                <td><input type="button" value="-" onclick="addToResult('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="C" onclick="clearResult()"></td>
+                <td><input type="button" value="0" onclick="addToResult('0')"></td>
+                <td><input type="button" value="=" onclick="calculateResult()"></td>
+                <td><input type="button" value="+" onclick="addToResult('+')"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // JavaScript for the calculator functions
+        function addToResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            try {
+                document.getElementById('result').value = eval(document.getElementById('result').value);
+            } catch (e) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
